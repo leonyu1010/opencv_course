@@ -60,6 +60,12 @@
     <ClCompile Include="week4_autofocus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bilateralBlur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dataPath.hpp">
