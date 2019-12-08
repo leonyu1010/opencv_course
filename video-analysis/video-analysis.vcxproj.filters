@@ -39,6 +39,9 @@
     <ClCompile Include="getRandomColors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Video_Stabilization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getRandomColors.h">

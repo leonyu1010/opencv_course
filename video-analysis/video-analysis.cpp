@@ -3,9 +3,11 @@
 
 #include <iostream>
 int Lucas_Kanade_tracker();
+int VideoStabilization();
 int main()
 {
-	Lucas_Kanade_tracker();
+	// Lucas_Kanade_tracker();
+	VideoStabilization();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

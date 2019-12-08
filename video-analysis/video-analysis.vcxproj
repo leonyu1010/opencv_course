@@ -97,7 +97,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\MD\x64-Debug\x64\vc16\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_tracking411d.lib;opencv_video411d.lib;opencv_features2d411d.lib;opencv_videoio411d.lib;opencv_objdetect411d.lib;opencv_core411d.lib;opencv_highgui411d.lib;opencv_imgcodecs411d.lib;opencv_imgproc411d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_calib3d411d.lib;opencv_tracking411d.lib;opencv_video411d.lib;opencv_features2d411d.lib;opencv_videoio411d.lib;opencv_objdetect411d.lib;opencv_core411d.lib;opencv_highgui411d.lib;opencv_imgcodecs411d.lib;opencv_imgproc411d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -159,6 +159,7 @@
     <ClCompile Include="trackMultiObjects.cpp" />
     <ClCompile Include="trackSingleObject.cpp" />
     <ClCompile Include="video-analysis.cpp" />
+    <ClCompile Include="Video_Stabilization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dataPath.hpp" />
