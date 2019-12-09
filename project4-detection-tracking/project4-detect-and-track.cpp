@@ -1,53 +1,52 @@
-// Usage example:  ./object_detection_yolo.out --video=run.mp4
-//                 ./object_detection_yolo.out --image=bird.jpg
-#include <fstream>
-#include <sstream>
 #include <iostream>
 #include <string>
-#include <opencv2/dnn.hpp>
+
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 
 #include "MyTracker.h"
-#include "MyDector.h"
+#include "MyDetector.h"
 #include "MyParser.h"
 
 using namespace cv;
 using namespace std;
 
+void InitInputAndOutput(MyParser_t &parser, cv::VideoCapture &cap, cv::VideoWriter &video)
+{
+	ifstream ifile(parser.InputFile);
+	if (!ifile)
+	{
+		int device = std::atoi(parser.InputFile.c_str());
+		cap.open(device);
+	}
+	else
+	{
+		cap.open(parser.InputFile);
+	}
+	video.open(parser.OutputFile, VideoWriter::fourcc('M', 'J', 'P', 'G'), cap.get(CAP_PROP_FPS),
+			   Size(cap.get(CAP_PROP_FRAME_WIDTH), cap.get(CAP_PROP_FRAME_HEIGHT)));
+}
+
 int main(int argc, char **argv)
 {
-	string inputFile, outputFile;
+	string className = "sports ball";
 	VideoCapture cap;
 	VideoWriter video;
 	Mat frame;
 	int frameCount = 0;
 
-	MyParser_t parser{"", "", -1};
-	parser.Parse(argc, argv);
-	inputFile = parser.InputFile;
-	outputFile = parser.OutputFile;
-	ifstream ifile(inputFile);
-	if (!ifile)
-	{
-		int device = std::atoi(inputFile.c_str());
-		cap.open(device);
-	}
-	else
-	{
-		cap.open(inputFile);
-	}
-	video.open(outputFile, VideoWriter::fourcc('M', 'J', 'P', 'G'), 28,
-			   Size(cap.get(CAP_PROP_FRAME_WIDTH), cap.get(CAP_PROP_FRAME_HEIGHT)));
+	MyParser_t parser{"./data/videos/soccer-ball.mp4", "./data/videos/soccer-ball_output.avi", true};
+	// parser.Parse(argc, argv);
+
+	InitInputAndOutput(parser, cap, video);
 
 	MyTracker_t myTracker{"KCF", false};
 
-	string className = "sports ball";
 	MyDetector_t myDetector{className};
 	myDetector.Init();
 
-	string kWinName = "Detect and Track";
-	cv::namedWindow(kWinName, WINDOW_NORMAL);
+	// string kWinName = "Detect and Track";
+	// cv::namedWindow(kWinName, WINDOW_NORMAL);
 
 	while (++frameCount)
 	{
@@ -56,7 +55,7 @@ int main(int argc, char **argv)
 		if (frame.empty())
 		{
 			cout << "Done processing !!!" << endl;
-			cout << "Output file is stored as " << outputFile << endl;
+			cout << "Output file is stored as " << parser.OutputFile << endl;
 			waitKey(3000);
 			break;
 		}
@@ -68,9 +67,9 @@ int main(int argc, char **argv)
 			if (!myDetector.found)
 			{
 				video.write(frame);
-				cout << className << " not detected" << endl;
-				imshow(kWinName, frame);
-				waitKey(1);
+				cout << className << " not detected Frame " << frameCount - 1 << endl;
+				// imshow(kWinName, frame);
+				// waitKey(1);
 				continue;
 			}
 		}
@@ -78,8 +77,8 @@ int main(int argc, char **argv)
 		myTracker.Track(frame, myDetector.bbox);
 		video.write(frame);
 
-		imshow(kWinName, frame);
-		waitKey(1);
+		// imshow(kWinName, frame);
+		// waitKey(1);
 	}
 
 	cap.release();

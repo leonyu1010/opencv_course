@@ -159,7 +159,7 @@
     <ClCompile Include="project4-detect-and-track.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyDector.h" />
+    <ClInclude Include="MyDetector.h" />
     <ClInclude Include="MyParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

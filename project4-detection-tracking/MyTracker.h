@@ -64,21 +64,14 @@ typedef struct MyTracker
 
 		if (IsTracking)
 		{
-			// Tracking success : Draw the tracked object
 			rectangle(frame, bbox, Scalar(0, 255, 0), 2, 1);
 		}
 		else
 		{
-			// Tracking failure detected.
-			putText(frame, "Tracking failure detected", Point(100, 180), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0, 0, 255),
-					2);
+			putText(frame, "Tracker failed", Point(100, 180), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0, 0, 255), 2);
 		}
 
-		// Display tracker type on frame
-		putText(frame, trackerType + " Tracker", Point(100, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(50, 170, 50), 2);
-
-		// Display FPS on frame
-		putText(frame, "FPS : " + std::to_string(fps), Point(100, 50), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(50, 170, 50),
-				2);
+		putText(frame, trackerType + " Tracker FPS : " + std::to_string(fps), Point(100, 20), FONT_HERSHEY_SIMPLEX,
+				0.75, Scalar(50, 170, 50), 2);
 	}
 } MyTracker_t;

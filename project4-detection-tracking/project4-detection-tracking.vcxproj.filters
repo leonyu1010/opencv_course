@@ -23,10 +23,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyDector.h">
+    <ClInclude Include="MyParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyParser.h">
+    <ClInclude Include="MyDetector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

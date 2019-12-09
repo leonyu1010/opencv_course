@@ -121,9 +121,7 @@ typedef struct MyDetector
 			// Put efficiency information. The function getPerfProfile returns the overall time for inference(t) and the
 			// timings for each of the layers(in layersTimes)
 			vector<double> layersTimes;
-			double freq = getTickFrequency() / 1000;
-			double t = net.getPerfProfile(layersTimes) / freq;
-			string label = format("Detector FPS : %.2f", 1000.0f / t);
+			string label = format("Detector FPS : %.2f", getTickFrequency() / net.getPerfProfile(layersTimes));
 			putText(frame, label, Point(0, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0));
 		}
 	}
