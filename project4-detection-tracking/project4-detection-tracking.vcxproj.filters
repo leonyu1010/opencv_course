@@ -15,15 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="object_detection_yolo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyTracker.h">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="project4-detect-and-track.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyDector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

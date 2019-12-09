@@ -156,10 +156,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MyTracker.h" />
-    <ClCompile Include="object_detection_yolo.cpp" />
+    <ClCompile Include="project4-detect-and-track.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyDector.h" />
+    <ClInclude Include="MyParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
