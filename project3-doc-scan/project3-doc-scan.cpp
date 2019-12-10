@@ -24,35 +24,34 @@ static void getBinMask(const Mat &comMask, Mat &binMask)
 
 int main(int argc, char **argv)
 {
+	int dst_width = 500;
+	int dst_height = static_cast<int>(500 * 1.414);
+	Point dst_TL{0, 0};
+	Point dst_TR{dst_width, 0};
+	Point dst_BL{0, dst_height};
+	Point dst_BR{dst_width, dst_height};
+
+	vector<Point> dst_ptrs{dst_TR, dst_TL, dst_BL, dst_BR};
+
 	Mat image, mask, bgdModel, fgdModel, binMask, grabcutImage;
 
-	Mat originalImage = imread("./data/images/book1.jpg");
+	Mat originalImage = imread("./data/images/form1.jpg");
 	image = originalImage.clone();
 
 	mask.create(image.size(), CV_8UC1);
-	int topmargin = 250;
-	int bottommargin = 80;
-	int leftmargin = 60;
-	int rightmargin = 60;
-	Rect rect(leftmargin, topmargin, originalImage.cols - (leftmargin + rightmargin),
-			  originalImage.rows - (topmargin + bottommargin));
-	mask.setTo(GC_BGD);
-	(mask(rect)).setTo(Scalar(GC_PR_FGD));
+	int topmargin = 150;
+	int bottommargin = 20;
+	int leftmargin = 20;
+	int rightmargin = 20;
+	Rect bbox(leftmargin, topmargin, image.cols - (leftmargin + rightmargin), image.rows - (topmargin + bottommargin));
+	mask.setTo(Scalar(GC_BGD));
+	mask(bbox).setTo(Scalar(GC_PR_FGD));
 
-	grabCut(image, mask, rect, bgdModel, fgdModel, 1, GC_INIT_WITH_RECT);
-
-	// for (int i = 0; i < 5; i++)
-	//{
-	//	grabCut(image, mask, rect, bgdModel, fgdModel, 1);
-	//}
+	grabCut(image, mask, bbox, bgdModel, fgdModel, 1, GC_INIT_WITH_RECT);
 	getBinMask(mask, binMask);
 	image.copyTo(grabcutImage, binMask);
-
-	// imshow("original", originalImage);
-	// waitKey(1);
-	imshow("grabcut", grabcutImage);
-	waitKey(1);
-
+	mask *= 255;
+	binMask *= 255;
 	Mat gray;
 	cvtColor(grabcutImage, gray, COLOR_BGR2GRAY);
 
@@ -61,8 +60,6 @@ int main(int argc, char **argv)
 
 	Mat eroded;
 	erode(binary, eroded, getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5)));
-	imshow("eroded", eroded);
-	waitKey(1);
 
 	vector<Point> contours;
 	vector<vector<Point>> contours0;
@@ -86,24 +83,31 @@ int main(int argc, char **argv)
 
 	approxPolyDP(Mat(contours0[contourId]), contours, 50, true);
 
-	Mat rotatedBox = originalImage.clone();
-	RotatedRect rotrect;
-	Point2f rect_points[4];
-	Mat boxPoints2f, boxPointsCov;
-	// Rotated rectangle
-	rotrect = minAreaRect(contours);
-	boxPoints(rotrect, boxPoints2f);
-	boxPoints2f.assignTo(boxPointsCov, CV_32S);
-	polylines(rotatedBox, boxPointsCov, true, Scalar(0, 255, 255), 2);
-	imshow("rotatedBox", rotatedBox);
-	waitKey(1);
-	Mat box = originalImage.clone();
+	// Mat rotatedBox = originalImage.clone();
+	// RotatedRect rotrect;
+	// Point2f rect_points[4];
+	// Mat boxPoints2f, boxPointsCov;
+	//// Rotated rectangle
+	// rotrect = minAreaRect(contours);
+	// boxPoints(rotrect, boxPoints2f);
+	// boxPoints2f.assignTo(boxPointsCov, CV_32S);
+	// polylines(rotatedBox, boxPointsCov, true, Scalar(0, 255, 255), 2);
+	// imshow("rotatedBox", rotatedBox);
+	// waitKey(1);
 
-	vector<vector<Point>> finalContours;
-	finalContours.push_back(contours);
-	drawContours(box, finalContours, 0, Scalar(128, 255, 255), 3, LINE_AA, hierarchy, 0);
-	imshow("box", box);
+	// Mat box = originalImage.clone();
 
-	waitKey();
+	// vector<vector<Point>> finalContours;
+	// finalContours.push_back(contours);
+	// drawContours(box, finalContours, 0, Scalar(128, 255, 255), 3, LINE_AA, hierarchy, 0);
+	// imshow("box", box);
+	// waitKey(1);
+	// imwrite("./data/images/box.jpg", box);
+
+	Mat h = findHomography(contours, dst_ptrs);
+
+	Mat finalResult;
+	warpPerspective(originalImage, finalResult, h, Size(dst_width, dst_height));
+	imwrite("./data/images/final.jpg", finalResult);
 	return 0;
 }
