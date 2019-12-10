@@ -18,8 +18,5 @@
     <ClCompile Include="project3-doc-scan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="grabcut.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
