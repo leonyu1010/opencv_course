@@ -1,7 +1,3 @@
-// project3-doc-scan.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include <iostream>
 #include <vector>
 
 #include "opencv2/opencv.hpp"
