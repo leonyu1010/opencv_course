@@ -91,13 +91,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\MD\x64-Debug\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\opencv\x64-Debug\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_calib3d411d.lib;opencv_tracking411d.lib;opencv_video411d.lib;opencv_features2d411d.lib;opencv_videoio411d.lib;opencv_objdetect411d.lib;opencv_core411d.lib;opencv_highgui411d.lib;opencv_imgcodecs411d.lib;opencv_imgproc411d.lib;opencv_dnn411d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\MD\x64-Debug\x64\vc16\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d420d.lib;opencv_tracking420d.lib;opencv_video420d.lib;opencv_features2d420d.lib;opencv_videoio420d.lib;opencv_objdetect420d.lib;opencv_core420d.lib;opencv_highgui420d.lib;opencv_imgcodecs420d.lib;opencv_imgproc420d.lib;opencv_dnn420d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\opencv\x64-Debug\x64\vc16\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\MD\x64-Release\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\opencv\x64-Release\include;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -150,8 +150,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_calib3d411.lib;opencv_tracking411.lib;opencv_video411.lib;opencv_features2d411.lib;opencv_videoio411.lib;opencv_objdetect411.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_imgproc411.lib;opencv_dnn411.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\MD\x64-Release\x64\vc16\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d420.lib;opencv_tracking420.lib;opencv_video420.lib;opencv_features2d420.lib;opencv_videoio420.lib;opencv_objdetect420.lib;opencv_core420.lib;opencv_highgui420.lib;opencv_imgcodecs420.lib;opencv_imgproc420.lib;opencv_dnn420.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\opencv\x64-Release\x64\vc16\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
