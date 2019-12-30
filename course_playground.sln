@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project4-detection-tracking
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "facial-landmark", "facial-landmark\facial-landmark.vcxproj", "{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "face-recognition", "face-recognition\face-recognition.vcxproj", "{1911481B-70C3-48B0-9A31-A69425CC4A67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -77,6 +79,14 @@ Global
 		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x64.Build.0 = Release|x64
 		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x86.ActiveCfg = Release|Win32
 		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x86.Build.0 = Release|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x64.ActiveCfg = Debug|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x64.Build.0 = Debug|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x86.ActiveCfg = Debug|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x86.Build.0 = Debug|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x64.ActiveCfg = Release|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x64.Build.0 = Release|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x86.ActiveCfg = Release|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
