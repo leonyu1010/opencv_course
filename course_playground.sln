@@ -8,7 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF79B376-5B02-4CDF-933C-61AFBD23CF78}"
 	ProjectSection(SolutionItems) = preProject
 		.clang-format = .clang-format
-		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
@@ -19,6 +18,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project3-doc-scan", "project3-doc-scan\project3-doc-scan.vcxproj", "{19049D0C-AF00-44D0-A054-EB53E25B0D78}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project4-detection-tracking", "project4-detection-tracking\project4-detection-tracking.vcxproj", "{0F114F42-AB52-4AD9-A393-6811F61FF458}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "facial-landmark", "facial-landmark\facial-landmark.vcxproj", "{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "face-recognition", "face-recognition\face-recognition.vcxproj", "{1911481B-70C3-48B0-9A31-A69425CC4A67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +71,22 @@ Global
 		{0F114F42-AB52-4AD9-A393-6811F61FF458}.Release|x64.Build.0 = Release|x64
 		{0F114F42-AB52-4AD9-A393-6811F61FF458}.Release|x86.ActiveCfg = Release|Win32
 		{0F114F42-AB52-4AD9-A393-6811F61FF458}.Release|x86.Build.0 = Release|Win32
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Debug|x64.ActiveCfg = Debug|x64
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Debug|x64.Build.0 = Debug|x64
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Debug|x86.ActiveCfg = Debug|Win32
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Debug|x86.Build.0 = Debug|Win32
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x64.ActiveCfg = Release|x64
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x64.Build.0 = Release|x64
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x86.ActiveCfg = Release|Win32
+		{570A7A17-92CA-435A-83DC-EACFD0F5F1EC}.Release|x86.Build.0 = Release|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x64.ActiveCfg = Debug|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x64.Build.0 = Debug|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x86.ActiveCfg = Debug|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Debug|x86.Build.0 = Debug|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x64.ActiveCfg = Release|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x64.Build.0 = Release|x64
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x86.ActiveCfg = Release|Win32
+		{1911481B-70C3-48B0-9A31-A69425CC4A67}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
